@@ -12,38 +12,26 @@
         <object id="MyObject" onerror="window.objectLoadFailure = true" classid="clsid:7A5D58C7-1C27-4DFF-8C8F-F5876FF94C64"></object>
 
     <script type="text/javascript" for="MyObject" event="OnUpdateString(stuff)">
-    document.write("<p>" + stuff);
-    document.writeln("</p>");
+    alert(stuff);
     </script>
 
-
+    <script type="text/javascript" for="window" event="onload">
+        obj.SayHello("Javascript Load");
+    </script>
 
     <script type="text/javascript">
-        function foo() { alert("W3C"); }
+        document.write("<p>Loaded ActiveX Object: " + !window.objectLoadFailure);
+        document.writeln("</p>");
+        if (typeof window.external.ControlObject !== "undefined") {
+            document.write(window.external.ControlObject());
+        }
 
-        var evName = "OnUpdateString";
-        var element = document.MyObject;
-            element.attachEvent('on' + evName, function (e) {
-                foo();
-            });
+
+        var obj = document.MyObject;
+        if (typeof obj.SayHello !== "undefined") {
+            document.writeln("<p>Can Call say hello</p>")
+        }
     </script>
 
-
-
-        <script type="text/javascript">
-            document.write("<p>Loaded ActiveX Object: " + !window.objectLoadFailure);
-            document.writeln("</p>");
-            if (typeof window.external.ControlObject !== "undefined") {
-                document.write(window.external.ControlObject());
-            }
-
-
-            var obj = document.MyObject;
-            if (typeof obj.SayHello !== "undefined") {
-                document.writeln("<p>Can Call say hello</p>")
-            }
-            obj.SayHello("Javascript Load");
-
-        </script>
 </body>
 </html>

@@ -29,15 +29,19 @@ namespace TestActiveX
         {
             webBrowser1.AllowWebBrowserDrop = false;
             webBrowser1.ObjectForScripting = this;
-            webBrowser1.Url = new Uri(@"C:\Users\jphillips\Documents\Visual Studio 2013\Projects\TestActiveX\TestActiveX\TestPage.html");
+            webBrowser1.Url = new Uri(@"file:///c|\Users\jphillips\Documents\Visual Studio 2013\Projects\TestActiveX\TestActiveX\TestPage.html");
 
-            // Call ActiveX
-            myObject.SayHello("C# Launch");
         }
 
         public string ControlObject()
         {
             return "<p>Control Object Called.</p>";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+                // Call ActiveX
+                myObject.SayHello("C# Launch");
         }
     }
 }
