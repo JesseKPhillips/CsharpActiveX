@@ -44,10 +44,10 @@ namespace ActiveXObjectSpace
     {
 
         public delegate void OnContextChangeHandler(string data);
-        public event OnContextChangeHandler OnUpdateString;
+        new public event OnContextChangeHandler OnUpdateString;
 
         // Dummy Method to use when firing the event
-        private void MyActiveX_nMouseClick(string index)
+        new private void MyActiveX_nMouseClick(string index)
         {
 
         }
