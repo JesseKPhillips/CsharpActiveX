@@ -1,39 +1,25 @@
 ﻿<!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <title>DemoCSharpActiveX webpage</title>
 </head>
 <body>
-        <script type="text/javascript">
-		window.objectLoadFailure = false;
-        </script>
+    <script type="text/javascript">
+        window.objectLoadFailure = false;
+    </script>
 
-        <object id="MyObject" onerror="window.objectLoadFailure = true" classid="clsid:7A5D58C7-1C27-4DFF-8C8F-F5876FF94C64"></object>
+    <object id="MyObject" onerror="window.objectLoadFailure = true" classid="clsid:7A5D58C7-1C27-4DFF-8C8F-F5876FF94C64"></object>
 
     <script type="text/javascript" for="MyObject" event="OnUpdateString(stuff)">
-    alert(stuff);
+        alert("Hello from: " + stuff);
     </script>
 
     <script type="text/javascript" for="window" event="onload">
-        obj.SayHello("Javascript Load");
+        alert("Hello from window.onload!");
+        alert(MyObject.object);
+        MyObject.SayHello("Javascript Load");
     </script>
 
-    <button onclick="obj.SayHello('Button Clicked')">Fire Event</button>
-
-    <script type="text/javascript">
-        document.write("<p>Loaded ActiveX Object: " + !window.objectLoadFailure);
-        document.writeln("</p>");
-        if (typeof window.external.ControlObject !== "undefined") {
-            document.write(window.external.ControlObject());
-        }
-
-
-        var obj = document.MyObject;
-        if (typeof obj.SayHello !== "undefined") {
-            document.writeln("<p>Can Call say hello</p>")
-        }
-    </script>
-
+    <button onclick="MyObject.SayHello('JS Button Clicked')">Fire Event</button>
 </body>
 </html>

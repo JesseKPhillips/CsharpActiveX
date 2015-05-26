@@ -65,7 +65,7 @@ namespace ActiveXObjectSpace
         [ComVisible(true)]
         public void SayHello(string who)
         {
-            OnUpdateString("Calling Callback: " + who);
+            OnUpdateString(who);
         }
     }
 }

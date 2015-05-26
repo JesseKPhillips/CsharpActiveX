@@ -41,7 +41,7 @@ namespace TestActiveX
         private void button1_Click(object sender, EventArgs e)
         {
                 // Call ActiveX
-                myObject.SayHello("C# Launch");
+                myObject.SayHello("C# Button");
         }
     }
 }
