@@ -25,6 +25,19 @@ namespace TestActiveX
             Load += new EventHandler(Form1_Load);
         }
 
+        /*
+         * The ActiveX objects will not fire the javascript event handler
+         * So we will insert javascript functions which will grab the
+         * Javascript object for us.
+         */
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            if (webBrowser1.ReadyState == WebBrowserReadyState.Complete)
+            {
+                myObject = (MyObject)this.webBrowser1.Document.InvokeScript("eval", new[] { "MyObject.object" });
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             webBrowser1.AllowWebBrowserDrop = false;
