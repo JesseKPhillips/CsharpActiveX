@@ -44,19 +44,7 @@ namespace ActiveXObjectSpace
     {
 
         public delegate void OnContextChangeHandler(string data);
-        new public event OnContextChangeHandler OnUpdateString;
-
-        // Dummy Method to use when firing the event
-        new private void MyActiveX_nMouseClick(string index)
-        {
-
-        }
-
-        public MyObject()
-        {
-            // Bind event
-            this.OnUpdateString = this.MyActiveX_nMouseClick;
-        }
+        public event OnContextChangeHandler OnUpdateString;
 
         [ComVisible(true)]
         public string CustomProperty { get; set; }
