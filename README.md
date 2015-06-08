@@ -14,3 +14,4 @@ It combines three code examples:
 
 * Don't use document.write inside the event handler as the object will be cleared from the page.
 * ActiveX object utilized by Javascript needs to be obtained from javascript.
+* When trying to support IE <= 9 and IE >= 10, the WebBrowser Control will default to compatibility mode. This requires a registry entry to tell IIS to use IE > 7.

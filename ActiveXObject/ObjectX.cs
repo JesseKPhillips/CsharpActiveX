@@ -10,8 +10,8 @@ using System.Windows.Forms;
 /// http://blogs.msdn.com/b/asiatech/archive/2011/12/05/how-to-develop-and-deploy-activex-control-in-c.aspx
 /// http://stackoverflow.com/questions/11175145/create-com-activexobject-in-c-use-from-jscript-with-simple-event
 ///
-/// Register with %NET64%\regasm /codebase <full path of dll file>
-/// Unregister with %NET64%\regasm /u <full path of dll file>
+/// Register with & "$env:windir\Microsoft.NET\Framework\v4.0.30319\regasm" /codebase <full path of dll file>
+/// Unregister with & "$env:windir\Microsoft.NET\Framework\v4.0.30319\regasm" /u <full path of dll file>
 namespace ActiveXObjectSpace
 {
 
