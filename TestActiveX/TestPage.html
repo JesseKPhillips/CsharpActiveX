@@ -1,25 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <title>DemoCSharpActiveX webpage</title>
-</head>
-<body>
-    <script type="text/javascript">
-        window.objectLoadFailure = false;
-    </script>
+	<head>
+		<title>DemoCSharpActiveX webpage</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.objectLoadFailure = false;
+		</script>
 
-    <object id="MyObject" onerror="window.objectLoadFailure = true" classid="clsid:7A5D58C7-1C27-4DFF-8C8F-F5876FF94C64"></object>
+		<object id="MyObject" onerror="window.objectLoadFailure = true" classid="clsid:7A5D58C7-1C27-4DFF-8C8F-F5876FF94C64">
+			<param name="CustomProperty" value="1CustomProperty2">
+    </object>
 
-    <script type="text/javascript" for="MyObject" event="OnUpdateString(stuff)">
-        alert("Hello from: " + stuff);
-    </script>
+		<script type="text/javascript" for="MyObject" event="OnUpdateString(stuff)">
+			alert("Hello from: " + stuff);
+		</script>
 
-    <script type="text/javascript" for="window" event="onload">
-        alert("Hello from window.onload!");
-        alert(MyObject.object);
-        MyObject.SayHello("Javascript Load");
-    </script>
+		<script type="text/javascript" for="window" event="onload">
+			alert("Hello from window.onload!");
+			alert(MyObject.object);
+			//MyObject.CustomProperty = "1CustomProperty2";
+			MyObject.SayHello("Javascript Load");
+		</script>
 
-    <button onclick="MyObject.SayHello('JS Button Clicked')">Fire Event</button>
-</body>
+		<button onclick="MyObject.SayHello('JS Button Clicked')">Fire Event</button>
+	</body>
 </html>
